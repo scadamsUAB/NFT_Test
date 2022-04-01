@@ -6,16 +6,10 @@ import os
 import time
 from pathlib import Path
 
-# TODO: PIN DATA
-# TODO: Configure options for Cache
-
 class IPFSWorker:
 
     def __init__(self):
-        self.api=None
-        if not os.path.exists('Cache'):
-            os.makedirs('Cache')
-       
+        self.api=None      
         self.tryconnect()
 
     def addFileByPath(self,filePath):
@@ -76,7 +70,7 @@ class IPFSWorker:
 
 if __name__ == '__main__':
     ipfsworker = IPFSWorker()
-    res = ipfsworker.api.add("Images/1.png")
+    res = ipfsworker.api.add("test.txt")
     print(res)
     print("HASH:",res['Hash'])
     print(ipfsworker.getContent(res["Hash"]))
